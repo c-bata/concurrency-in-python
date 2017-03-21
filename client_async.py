@@ -14,6 +14,6 @@ async def main(l, url, num):
 
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
-    results = loop.run_until_complete(main(loop, 'http://localhost:8000', 2))
+    results = loop.run_until_complete(main(loop, 'http://localhost:8000', 3))
     for r in results:
         print(r)

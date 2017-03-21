@@ -17,7 +17,6 @@
 あまり負荷をかけるのも迷惑なのでサーバを用意しますね。
 
 ```python
-# server.py
 import time
 
 def app(environ, start_response):
@@ -56,16 +55,18 @@ if __name__ == '__main__':
 実行してみます。
 
 ```console
-$ time python client.py 
+$ time python client_sync.py 
+This is a slow web api
 This is a slow web api
 This is a slow web api
 
-real    0m2.195s
-user    0m0.157s
-sys     0m0.026s
+real    0m3.219s
+user    0m0.162s
+sys     0m0.031s
 ```
 
-2.19sかかりました。
+**3.219s** かかりました。
+
 今回用意したサーバは、レスポンスを返すのに1秒は必要です。
 2回リクエストを送ったので2秒程度はかかるでしょう。
 次は別の方法でリクエストを送ってみます。
@@ -101,16 +102,17 @@ if __name__ == '__main__':
 とりあえず実行してみましょう。
 
 ```console
-$ time python async_client.py 
+$ time python client_async.py 
+This is a slow web api
 This is a slow web api
 This is a slow web api
 
-real    0m1.357s
-user    0m0.300s
-sys     0m0.046s
+real    0m1.415s
+user    0m0.333s
+sys     0m0.051s
 ```
 
-必要な時間は、1.357sでした。
+必要な時間は、1.415sでした。
 何故このようになったのでしょうか？
 
 
