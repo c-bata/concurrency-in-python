@@ -153,7 +153,7 @@ thrreadingモジュールを使って、高速に処理することができま�
 マルチスレッドのプログラムでこれらのことをコントロールするのは非常に難しいです。
 
 
-### 非同期版クライアント
+## async/awaitによる非同期処理
 
 次は今回のテーマである非同期プログラミングを体験してみましょう。
 
@@ -204,7 +204,7 @@ multithreadingモジュールなどは使っていませんが、何故短くな
 multithreadのときと同じようなグラフになりました。
 
 
-## 多くのリクエストを送ってみる
+### 多くのリクエストを送ってみる
 
 9回ほどリクエストを送ってみます。
 サーバのworker数は3つなので、9個中6個のリクエストは前の処理が完了するのを待ちます。
@@ -281,7 +281,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 ```
 
 ``multiprocessing`` モジュール提供する ``Pool`` クラスは、複数のプロセスワーカーを管理する際に面倒なことを全て負担してくれています。コードは非常にシンプルで保守も簡単です。
@@ -304,6 +303,17 @@ sys     0m0.079s
 たくさん、プロセスを生成すると、メモリもたくさん消費するでしょう。
 もし並行処理が必要になった場合には、これらのメリットやデメリットを踏まえて適切なアプローチをとってください。
 
+
+## 非同期処理の関連資料
+
+- [You Might Not Want Async (in Python) - PyCon JP 2015](https://www.youtube.com/watch?v=IBA89nFEQ8U)
+    - 関数をコルーチンに変えた場合、呼び出し側もawaitするように書き換えないと壊れてしまう点
+    - テストの難しさ (コルーチンやイベントループの扱い)
+- [David Beazley - Python Concurrency From the Ground Up: LIVE! - PyCon 2015](https://www.youtube.com/watch?v=MCs5OvhV9S4)
+    - GILやマルチスレッド、マルチプロセスの解説
+    -　async/awaitの構文のネイティブコルーチンではなく、ジェネレータベースのコルーチンの実装
+    - タスクキューの実装
+- [I don't understand Python's Asyncio - Armin Ronacher](http://lucumr.pocoo.org/2016/10/30/i-dont-understand-asyncio/)
 
 ## 手を動かしてみよう
 
