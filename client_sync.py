@@ -1,15 +1,12 @@
 import requests
 
 
-def fetch(url):
-    resp = requests.get(url)
-    return resp.text
+def main():
+    urls = ['http://localhost:8000' for _ in range(3)]
+    for u in urls:
+        r = requests.get(u)
+        print(r.text)
 
-
-def main(url, num):
-    return [fetch(url) for _ in range(num)]
 
 if __name__ == '__main__':
-    results = main('http://localhost:8000/', 3)
-    for r in results:
-        print(r)
+    main()
