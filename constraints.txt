@@ -3,4 +3,5 @@ async-timeout==1.2.0
 chardet==2.3.0
 gunicorn==19.7.1
 multidict==2.1.4
+requests==2.13.0
 yarl==0.10.0
