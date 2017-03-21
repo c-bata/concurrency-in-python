@@ -14,8 +14,7 @@ async def bound_fetch(semaphore, l, url):
 
 async def main(l, url, num):
     s = asyncio.Semaphore(3)
-    tasks = [asyncio.ensure_future(bound_fetch(s, l, url))
-             for _ in range(num)]
+    tasks = [bound_fetch(s, l, url) for _ in range(num)]
     return await asyncio.gather(*tasks)
 
 

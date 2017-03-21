@@ -8,7 +8,7 @@ async def fetch(l, url):
 
 
 async def main(l, url, num):
-    tasks = [asyncio.ensure_future(fetch(l, url)) for _ in range(num)]
+    tasks = [fetch(l, url) for _ in range(num)]
     return await asyncio.gather(*tasks)
 
 
