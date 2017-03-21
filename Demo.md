@@ -6,14 +6,14 @@
 
 ## アジェンダ
 
-1. 同期的な処理
+1. 同期的なアプローチ
 2. マルチスレッド
 3. async/awaitによる非同期処理
 4. マルチプロセス
 5. 手を動かしてみよう
 
 
-## 同期的な処理
+## 同期的なアプローチ
 
 まずはテーマである非同期処理の話をする前に、とあるサーバに複数のHTTPリクエストを送る例を見てみましょう。
 
@@ -32,13 +32,13 @@ def app(environ, start_response):
     return [b'This is a slow web api']
 ```
 
-動かしてみましょう
+ワーカー数を3つで動かしてみましょう。
 
 ```console
 $ gunicorn -w 3 server:app
 ```
 
-### クライアント(同期版)
+### クライアントを書いてみる
 
 それではいくつかHTTPリクエストを送ってみます。
 Pythonでは、requestsという有名なパッケージがあるので、こちらを使ってみましょう。
@@ -46,17 +46,14 @@ Pythonでは、requestsという有名なパッケージがあるので、こち
 ```python
 import requests
 
-def fetch(url):
-    resp = requests.get(url)
-    return resp.text
-
-def main(url, num):
-    return [fetch(url) for _ in range(num)]
+def main():
+    urls = ['http://localhost:8000' for _ in range(3)]
+    for u in urls:
+        r = requests.get(u)
+        print(r.text)
 
 if __name__ == '__main__':
-    results = main('http://localhost:8000/', 3)
-    for r in results:
-        print(r)
+    main()
 ```
 
 実行してみます。
@@ -74,7 +71,7 @@ sys     0m0.037s
 
 3秒ちょっとかかりました。
 今回用意したサーバは、レスポンスを返すのに1秒かかるので、ごく自然な結果ですね。
-それでは並行処理によって高速にする例を見てみましょう。
+それでは時間を短縮する方法を考えてみましょう。
 
 ## マルチスレッド
 
