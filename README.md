@@ -4,26 +4,6 @@
 - Date: 2017/03/21 (Tue)
 - Event: 神戸Pythonの会
 
-## 環境構築
-#### 用意していただくもの
-- MacもしくはLinuxが動く環境
-- エディタ(こだわりがない場合はPyCharmがお薦めです)
-- Python 3.6
-
-#### virtualenvの作成
-
-ハンズオンをしていくにあたって、virtualenvの使用を推奨しています。
-Python3では、 `venv` モジュールが含まれていますのでこちらを使用して作成してください。
-
-```console
-$ python3.6 -m venv venv
-$ source ./venv/activate
-(venv)$ which python
-/<path to pwd>/venv/bin/python
-(venv)$ python -m pip install -U pip
-(venv)$ python -m pip install -c constraints.txt -r requirements.txt
-```
-
 ## アジェンダ
 
 1. 同期的なアプローチ
