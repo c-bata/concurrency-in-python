@@ -10,8 +10,7 @@
 2. マルチスレッド
 3. async/awaitによる非同期処理
 4. マルチプロセス
-5. 手を動かしてみよう
-
+5. 実践
 
 ## 同期的なアプローチ
 
@@ -323,7 +322,7 @@ sys     0m0.079s
     - タスクキューの実装
 - [I don't understand Python's Asyncio - Armin Ronacher](http://lucumr.pocoo.org/2016/10/30/i-dont-understand-asyncio/)
 
-## 手を動かしてみよう
+## 実践
 
 実際に動かしてみましょう。何かわからないことがあれば質問ください。
 余力のある方は、multithreadingやmultiprocessingモジュールを使って書いてみるといいと思います
