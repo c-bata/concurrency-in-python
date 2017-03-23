@@ -128,7 +128,7 @@ sys     0m0.028s
 ```
 
 処理時間は1/3程度になり、非常に高速になりました。
-念のため、スレッドの動きを見てみましょう。
+念のため、[PyCharm](https://www.jetbrains.com/help/pycharm/2016.3/thread-concurrency-visualization.html)でスレッドの動きを見てみましょう。
 
 **マルチスレッド化する前**
 
